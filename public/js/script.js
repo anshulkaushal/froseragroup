@@ -1,13 +1,22 @@
-// Mobile Navigation Toggle
+// Mobile Navigation Toggle with Enhanced Touch Support
 document.addEventListener('DOMContentLoaded', function() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle mobile menu
-    navToggle.addEventListener('click', function() {
+    // Toggle mobile menu with improved touch handling
+    navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
+        
+        // Prevent body scroll when menu is open
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // Close mobile menu when clicking on a link
@@ -15,7 +24,28 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !navToggle.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Handle escape key for mobile menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
     });
 
     // Smooth scrolling for navigation links
@@ -209,17 +239,122 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('loaded');
     });
 
-    // Add parallax effect to hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const heroSection = document.querySelector('.hero');
-        const heroImage = document.querySelector('.hero-image');
+    // Add parallax effect to hero section (disabled on mobile for performance)
+    const isMobile = window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (!isMobile) {
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroSection = document.querySelector('.hero');
+            const heroImage = document.querySelector('.hero-image');
+            
+            if (heroSection && heroImage) {
+                const rate = scrolled * -0.5;
+                heroImage.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    }
+    
+    // Mobile-specific optimizations
+    if (isMobile) {
+        // Disable hover effects on mobile
+        document.body.classList.add('mobile-device');
         
-        if (heroSection && heroImage) {
-            const rate = scrolled * -0.5;
-            heroImage.style.transform = `translateY(${rate}px)`;
+        // Optimize scroll performance
+        let ticking = false;
+        function updateScrollEffects() {
+            // Throttled scroll effects for mobile
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.background = '#fff';
+                navbar.style.backdropFilter = 'none';
+            }
+            ticking = false;
         }
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollEffects);
+                ticking = true;
+            }
+        });
+    }
+    
+    // Touch gesture support for service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        let startY = 0;
+        let startX = 0;
+        
+        card.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+            startX = e.touches[0].clientX;
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
+        
+        card.addEventListener('touchend', function(e) {
+            this.style.transform = '';
+        }, { passive: true });
+        
+        card.addEventListener('touchmove', function(e) {
+            const currentY = e.touches[0].clientY;
+            const currentX = e.touches[0].clientX;
+            const diffY = Math.abs(currentY - startY);
+            const diffX = Math.abs(currentX - startX);
+            
+            // If user is scrolling, reset transform
+            if (diffY > 10 || diffX > 10) {
+                this.style.transform = '';
+            }
+        }, { passive: true });
     });
+    
+    // Improve form input experience on mobile
+    const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+    formInputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            // Scroll input into view on mobile
+            if (isMobile) {
+                setTimeout(() => {
+                    this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            }
+        });
+    });
+    
+    // Add pull-to-refresh indicator (visual only)
+    let startY = 0;
+    let pullDistance = 0;
+    const pullThreshold = 100;
+    
+    document.addEventListener('touchstart', function(e) {
+        if (window.scrollY === 0) {
+            startY = e.touches[0].clientY;
+        }
+    }, { passive: true });
+    
+    document.addEventListener('touchmove', function(e) {
+        if (window.scrollY === 0 && startY > 0) {
+            pullDistance = e.touches[0].clientY - startY;
+            if (pullDistance > 0 && pullDistance < pullThreshold) {
+                // Visual feedback for pull-to-refresh (optional)
+                document.body.style.transform = `translateY(${pullDistance * 0.3}px)`;
+            }
+        }
+    }, { passive: true });
+    
+    document.addEventListener('touchend', function() {
+        if (pullDistance > pullThreshold) {
+            // Could trigger refresh here
+            console.log('Pull to refresh triggered');
+        }
+        document.body.style.transform = '';
+        startY = 0;
+        pullDistance = 0;
+    }, { passive: true });
 });
 
 // Add CSS for loaded state
