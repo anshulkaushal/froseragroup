@@ -1,6 +1,6 @@
 # Froserra Group Website
 
-A modern, responsive website for Froserra Group - Import & Distribution Experts in Wellington, New Zealand.
+A modern, responsive Node.js web application for Froserra Group - Import & Distribution Experts in Wellington, New Zealand.
 
 ## About Froserra Group
 
@@ -8,11 +8,13 @@ Founded in 2022, Froserra Group is a Wellington-based company focused on importi
 
 ## Website Features
 
+- **Node.js Backend**: Express.js server with EJS templating
 - **Responsive Design**: Fully responsive layout that works on all devices
 - **Modern UI/UX**: Clean, professional design with smooth animations
 - **Interactive Navigation**: Mobile-friendly navigation with smooth scrolling
-- **Contact Form**: Functional contact form with validation
+- **Server-side Contact Form**: Functional contact form with server-side validation
 - **Performance Optimized**: Fast loading with optimized assets
+- **Error Handling**: Custom 404 and 500 error pages
 
 ## Services Highlighted
 
@@ -29,6 +31,9 @@ Founded in 2022, Froserra Group is a Wellington-based company focused on importi
 
 ## Technology Stack
 
+- **Node.js**: Server-side JavaScript runtime
+- **Express.js**: Web application framework
+- **EJS**: Embedded JavaScript templating engine
 - **HTML5**: Semantic markup with modern structure
 - **CSS3**: Advanced styling with Flexbox, Grid, and animations
 - **JavaScript**: Interactive features and smooth user experience
@@ -39,20 +44,73 @@ Founded in 2022, Froserra Group is a Wellington-based company focused on importi
 
 ```
 froseragroup/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-└── README.md           # This file
+├── server.js           # Main Express server
+├── package.json        # Node.js dependencies and scripts
+├── public/            # Static assets
+│   ├── css/
+│   │   └── styles.css  # CSS styles and responsive design
+│   ├── js/
+│   │   └── script.js   # Client-side JavaScript
+│   └── images/
+│       └── Logo.jpg    # Company logo
+├── views/             # EJS templates
+│   ├── index.ejs      # Main page template
+│   ├── 404.ejs        # 404 error page
+│   └── 500.ejs        # 500 error page
+└── README.md          # This file
 ```
 
 ## Setup Instructions
 
-1. **Download/Clone the files** to your local machine
-2. **Open index.html** in a web browser to view the website
-3. **For development**: Use a local web server for best experience
-   - Using Python: `python -m http.server 8000`
-   - Using Node.js: `npx http-server`
-   - Using PHP: `php -S localhost:8000`
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm (comes with Node.js)
+
+### Installation
+
+1. **Clone or download the project** to your local machine
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+   Or for production:
+   ```bash
+   npm start
+   ```
+
+4. **Open your browser** and navigate to:
+   ```
+   http://localhost:3000
+   ```
+
+### Available Scripts
+
+- `npm start` - Start the production server
+- `npm run dev` - Start the development server with auto-restart (nodemon)
+
+### Environment Variables
+
+Create a `.env` file in the root directory for environment configuration:
+
+```env
+# Server Configuration
+PORT=3000
+NODE_ENV=development
+
+# Email Configuration (for contact form)
+# EMAIL_HOST=smtp.gmail.com
+# EMAIL_PORT=587
+# EMAIL_USER=your-email@gmail.com
+# EMAIL_PASS=your-app-password
+# EMAIL_FROM=noreply@froseragroup.com
+# EMAIL_TO=froserag@gmail.com
+```
 
 ## Browser Support
 
