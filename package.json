@@ -1,7 +1,7 @@
 {
-  "name": "froserra-group-website",
+  "name": "frosera-group-website",
   "version": "1.0.0",
-  "description": "Froserra Group - Import & Distribution Experts in Wellington, New Zealand",
+  "description": "Frosera Group - Import & Distribution Experts in Wellington, New Zealand",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,9 +14,9 @@
     "distribution",
     "wellington",
     "new-zealand",
-    "froserra"
+    "frosera"
   ],
-  "author": "Froserra Group",
+  "author": "Frosera Group",
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",

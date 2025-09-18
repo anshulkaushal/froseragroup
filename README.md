@@ -1,10 +1,10 @@
-# Froserra Group Website
+# Frosera Group Website
 
-A modern, responsive Node.js web application for Froserra Group - Import & Distribution Experts in Wellington, New Zealand.
+A modern, responsive Node.js web application for Frosera Group - Import & Distribution Experts in Wellington, New Zealand.
 
-## About Froserra Group
+## About Frosera Group
 
-Founded in 2022, Froserra Group is a Wellington-based company focused on importing and distributing premium products from around the world. Our mission is to bring diversity, quality, and innovation to New Zealand's retail and food service sectors.
+Founded in 2022, Frosera Group is a Wellington-based company focused on importing and distributing premium products from around the world. Our mission is to bring diversity, quality, and innovation to New Zealand's retail and food service sectors.
 
 ## Website Features
 

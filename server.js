@@ -18,8 +18,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', (req, res) => {
     res.render('index', {
-        title: 'Froserra Group | Import & Distribution Experts in Wellington',
-        description: 'Froserra Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.',
+        title: 'Frosera Group | Import & Distribution Experts in Wellington',
+        description: 'Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.',
         currentYear: new Date().getFullYear()
     });
 });
@@ -67,7 +67,7 @@ app.post('/contact', (req, res) => {
 // 404 handler
 app.use((req, res) => {
     res.status(404).render('404', {
-        title: '404 - Page Not Found | Froserra Group'
+        title: '404 - Page Not Found | Frosera Group'
     });
 });
 
@@ -75,13 +75,13 @@ app.use((req, res) => {
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).render('500', {
-        title: '500 - Server Error | Froserra Group'
+        title: '500 - Server Error | Frosera Group'
     });
 });
 
 // Start server
 app.listen(PORT, () => {
-    console.log(`🚀 Froserra Group website running on http://localhost:${PORT}`);
+    console.log(`🚀 Frosera Group website running on http://localhost:${PORT}`);
     console.log(`📁 Serving static files from: ${path.join(__dirname, 'public')}`);
     console.log(`📋 Views directory: ${path.join(__dirname, 'views')}`);
 });
