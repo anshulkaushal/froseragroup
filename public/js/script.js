@@ -165,9 +165,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Add hover effects to service cards
+    // Service cards interactions (hover and touch)
     const serviceCards = document.querySelectorAll('.service-card');
     serviceCards.forEach(card => {
+        // Hover effects for desktop
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
         });
@@ -175,6 +176,32 @@ document.addEventListener('DOMContentLoaded', function() {
         card.addEventListener('mouseleave', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
+        
+        // Touch effects for mobile
+        let startY = 0;
+        let startX = 0;
+        
+        card.addEventListener('touchstart', function(e) {
+            startY = e.touches[0].clientY;
+            startX = e.touches[0].clientX;
+            this.style.transform = 'scale(0.98)';
+        }, { passive: true });
+        
+        card.addEventListener('touchend', function(e) {
+            this.style.transform = '';
+        }, { passive: true });
+        
+        card.addEventListener('touchmove', function(e) {
+            const currentY = e.touches[0].clientY;
+            const currentX = e.touches[0].clientX;
+            const diffY = Math.abs(currentY - startY);
+            const diffX = Math.abs(currentX - startX);
+            
+            // If user is scrolling, reset transform
+            if (diffY > 10 || diffX > 10) {
+                this.style.transform = '';
+            }
+        }, { passive: true });
     });
 
     // Typing effect for hero title (optional enhancement)
@@ -304,34 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Touch gesture support for service cards
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        let startY = 0;
-        let startX = 0;
-        
-        card.addEventListener('touchstart', function(e) {
-            startY = e.touches[0].clientY;
-            startX = e.touches[0].clientX;
-            this.style.transform = 'scale(0.98)';
-        }, { passive: true });
-        
-        card.addEventListener('touchend', function(e) {
-            this.style.transform = '';
-        }, { passive: true });
-        
-        card.addEventListener('touchmove', function(e) {
-            const currentY = e.touches[0].clientY;
-            const currentX = e.touches[0].clientX;
-            const diffY = Math.abs(currentY - startY);
-            const diffX = Math.abs(currentX - startX);
-            
-            // If user is scrolling, reset transform
-            if (diffY > 10 || diffX > 10) {
-                this.style.transform = '';
-            }
-        }, { passive: true });
-    });
     
     // Improve form input experience on mobile
     const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
