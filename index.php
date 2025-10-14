@@ -312,21 +312,196 @@ $currentYear = date('Y');
         </div>
     </footer>
 
-    <script src="public/js/script.js"></script>
-    
-    <!-- Fallback hamburger menu script -->
+    <!-- Complete inline script to avoid caching issues -->
     <script>
-    // Simple fallback hamburger menu
     document.addEventListener('DOMContentLoaded', function() {
-        const hamburger = document.querySelector('.nav-toggle');
-        const menu = document.querySelector('.nav-menu');
+        console.log('DOM loaded - complete inline script');
         
-        if (hamburger && menu) {
-            hamburger.addEventListener('click', function() {
-                hamburger.classList.toggle('active');
-                menu.classList.toggle('active');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        console.log('Elements found:', { navToggle: !!navToggle, navMenu: !!navMenu, navLinks: navLinks.length });
+
+        if (!navToggle || !navMenu) {
+            console.error('Required navigation elements not found!');
+            return;
+        }
+
+        // Toggle mobile menu
+        navToggle.addEventListener('click', function(e) {
+            console.log('Hamburger clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isActive = navToggle.classList.contains('active');
+            console.log('Menu currently active:', isActive);
+            
+            if (isActive) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                console.log('Menu closed');
+            } else {
+                navToggle.classList.add('active');
+                navMenu.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                console.log('Menu opened');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                console.log('Nav link clicked, closing menu');
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (navMenu.classList.contains('active') && 
+                !navMenu.contains(e.target) && 
+                !navToggle.contains(e.target)) {
+                console.log('Clicked outside, closing menu');
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form handling
+        const contactForm = document.querySelector('.contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalText = submitButton.textContent;
+                
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+
+                fetch('contact.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: formData.get('name'),
+                        email: formData.get('email'),
+                        subject: formData.get('subject'),
+                        message: formData.get('message')
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        this.reset();
+                    } else {
+                        alert(data.message || 'An error occurred. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                })
+                .finally(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.disabled = false;
+                });
             });
         }
+
+        // Service cards interactions (combined hover and touch)
+        const serviceCards = document.querySelectorAll('.service-card');
+        serviceCards.forEach(card => {
+            // Hover effects for desktop
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+            
+            // Touch effects for mobile
+            let startY = 0;
+            let startX = 0;
+            
+            card.addEventListener('touchstart', function(e) {
+                startY = e.touches[0].clientY;
+                startX = e.touches[0].clientX;
+                this.style.transform = 'scale(0.98)';
+            }, { passive: true });
+            
+            card.addEventListener('touchend', function(e) {
+                this.style.transform = '';
+            }, { passive: true });
+            
+            card.addEventListener('touchmove', function(e) {
+                const currentY = e.touches[0].clientY;
+                const currentX = e.touches[0].clientX;
+                const diffY = Math.abs(currentY - startY);
+                const diffX = Math.abs(currentX - startX);
+                
+                if (diffY > 10 || diffX > 10) {
+                    this.style.transform = '';
+                }
+            }, { passive: true });
+        });
+
+        console.log('All scripts loaded successfully');
+    });
+
+    // Add CSS for loaded state
+    const style = document.createElement('style');
+    style.textContent = `
+        body {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
+
+    // Add loading animation
+    window.addEventListener('load', function() {
+        document.body.classList.add('loaded');
     });
     </script>
 </body>
