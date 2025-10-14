@@ -39,11 +39,11 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $sendEmails = false; // Set to true if you configure mail()
 
 if ($sendEmails) {
-    $to = 'froserag@gmail.com';
-    $headers = 'From: noreply@froseragroup.com' . "\r\n" .
+    $to = 'sales@froseragroup.co.nz';
+    $headers = 'From: noreply@froseragroup.co.nz' . "\r\n" .
                'Reply-To: ' . $email . "\r\n" .
                'Content-Type: text/plain; charset=utf-8';
-    $body = "New contact form submission:\n\n" .
+    $body = "New contact form submission (froseragroup.co.nz):\n\n" .
             "Name: $name\n" .
             "Email: $email\n" .
             "Subject: $subject\n" .

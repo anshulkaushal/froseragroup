@@ -244,14 +244,14 @@ $currentYear = date('Y');
                         <i class="fas fa-globe"></i>
                         <div>
                             <h4>Website</h4>
-                            <p>www.froseragroup.com</p>
+                            <p>froseragroup.co.nz</p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>froserag@gmail.com</p>
+                            <p>sales@froseragroup.co.nz</p>
                         </div>
                     </div>
                 </div>
