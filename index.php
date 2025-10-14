@@ -313,5 +313,21 @@ $currentYear = date('Y');
     </footer>
 
     <script src="public/js/script.js"></script>
+    
+    <!-- Fallback hamburger menu script -->
+    <script>
+    // Simple fallback hamburger menu
+    document.addEventListener('DOMContentLoaded', function() {
+        const hamburger = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        
+        if (hamburger && menu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                menu.classList.toggle('active');
+            });
+        }
+    });
+    </script>
 </body>
 </html>
