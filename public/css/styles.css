@@ -534,8 +534,8 @@ body {
     color: #94a3b8;
 }
 
-/* Mobile-First Responsive Design */
-@media screen and (max-width: 768px) {
+/* Auto-detect device and show hamburger menu when needed */
+@media screen and (max-width: 1024px) {
     /* Enhanced Navigation */
     .nav-container {
         padding: 0.8rem 15px;
@@ -799,7 +799,7 @@ body {
 }
 
 /* Small Mobile Devices */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
     /* Navigation */
     .nav-container {
         padding: 0.7rem 10px;

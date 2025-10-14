@@ -471,6 +471,38 @@ $currentYear = date('Y');
             }, { passive: true });
         });
 
+        // Auto-detect device and screen size for navigation
+        function updateNavigationDisplay() {
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            const isMobile = window.innerWidth <= 1024 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Show hamburger menu
+                navToggle.style.display = 'flex';
+                navMenu.style.display = 'flex';
+                console.log('Mobile detected - hamburger menu enabled');
+            } else {
+                // Show desktop menu
+                navToggle.style.display = 'none';
+                navMenu.style.display = 'flex';
+                navMenu.style.position = 'static';
+                navMenu.style.left = 'auto';
+                navMenu.style.width = 'auto';
+                navMenu.style.flexDirection = 'row';
+                navMenu.style.background = 'transparent';
+                navMenu.style.boxShadow = 'none';
+                navMenu.style.padding = '0';
+                console.log('Desktop detected - horizontal menu enabled');
+            }
+        }
+        
+        // Initial check
+        updateNavigationDisplay();
+        
+        // Update on window resize
+        window.addEventListener('resize', updateNavigationDisplay);
+        
         console.log('All scripts loaded successfully');
     });
 
