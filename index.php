@@ -23,23 +23,23 @@ $currentYear = date('Y');
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     <!-- Preload critical resources -->
-    <link rel="preload" href="/public/css/styles.css" as="style">
+    <link rel="preload" href="public/css/styles.css" as="style">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     
-    <link rel="stylesheet" href="/public/css/styles.css">
+    <link rel="stylesheet" href="public/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Favicon for browser tab and mobile -->
-    <link rel="icon" type="image/jpeg" href="/public/images/Logo.jpg">
-    <link rel="shortcut icon" type="image/jpeg" href="/public/images/Logo.jpg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/Logo.jpg">
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="/public/images/Logo.jpg">
-    <link rel="icon" type="image/jpeg" sizes="16x16" href="/public/images/Logo.jpg">
+    <link rel="icon" type="image/jpeg" href="public/images/Logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="public/images/Logo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/images/Logo.jpg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="public/images/Logo.jpg">
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="public/images/Logo.jpg">
 </head>
 <body>
     <!-- Navigation -->
@@ -47,7 +47,7 @@ $currentYear = date('Y');
         <div class="nav-container">
             <div class="nav-logo">
                 <div class="logo-container">
-                    <img src="/public/images/Logo.jpg" alt="Frosera Group Logo" class="logo-image">
+                    <img src="public/images/Logo.jpg" alt="Frosera Group Logo" class="logo-image">
                     <h2>Frosera Group</h2>
                 </div>
             </div>
@@ -312,6 +312,6 @@ $currentYear = date('Y');
         </div>
     </footer>
 
-    <script src="/public/js/script.js"></script>
+    <script src="public/js/script.js"></script>
 </body>
 </html>
