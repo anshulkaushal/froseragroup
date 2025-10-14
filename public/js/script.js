@@ -331,7 +331,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    
     // Improve form input experience on mobile
     const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
     formInputs.forEach(input => {
