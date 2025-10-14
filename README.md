@@ -60,7 +60,7 @@ froseragroup/
 └── README.md          # This file
 ```
 
-## Setup Instructions
+## Setup Instructions (Node.js)
 
 ### Prerequisites
 - Node.js (version 14 or higher)
@@ -111,6 +111,28 @@ NODE_ENV=development
 # EMAIL_FROM=noreply@froseragroup.com
 # EMAIL_TO=froserag@gmail.com
 ```
+
+## Deploying to Hostinger (PHP)
+
+This project can also run on standard PHP hosting (e.g., Hostinger) without Node.js. We include `index.php` and `contact.php` so you can deploy easily:
+
+### Files used in PHP mode
+- `index.php` – renders the site and injects the current year
+- `contact.php` – handles contact form POST with JSON response
+- `public/` – contains CSS/JS/images; referenced by `index.php`
+
+### Steps
+1. Upload all files and folders to your domain root (public_html)
+2. Ensure this structure exists on the server:
+   - `public_html/index.php`
+   - `public_html/contact.php`
+   - `public_html/public/css/styles.css`
+   - `public_html/public/js/script.js`
+   - `public_html/public/images/Logo.jpg`
+3. The contact form will POST to `contact.php` and return JSON.
+
+### Optional: Enable email sending
+Open `contact.php` and set `$sendEmails = true;`, then configure the `$to` and headers. Note: the native `mail()` function requires server email configuration (or use SMTP with a library if needed).
 
 ## Browser Support
 

@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
             submitButton.textContent = 'Sending...';
             submitButton.disabled = true;
 
-            // Send form data to server
-            fetch('/contact', {
+            // Send form data to server (PHP endpoint for Hostinger)
+            fetch('contact.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

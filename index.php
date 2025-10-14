@@ -1,0 +1,317 @@
+<?php
+// Basic PHP entry point for Hostinger PHP hosting.
+// Adjust variables below as needed.
+$title = 'Frosera Group | Import & Distribution Experts in Wellington';
+$description = 'Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.';
+$currentYear = date('Y');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title><?php echo htmlspecialchars($title, ENT_QUOTES, 'UTF-8'); ?></title>
+    <meta name="description" content="<?php echo htmlspecialchars($description, ENT_QUOTES, 'UTF-8'); ?>">
+    
+    <!-- Mobile-specific meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Frosera Group">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="msapplication-navbutton-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/public/css/styles.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    
+    <!-- DNS prefetch for external resources -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon for browser tab and mobile -->
+    <link rel="icon" type="image/jpeg" href="/public/images/Logo.jpg">
+    <link rel="shortcut icon" type="image/jpeg" href="/public/images/Logo.jpg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/images/Logo.jpg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="/public/images/Logo.jpg">
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="/public/images/Logo.jpg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-container">
+                    <img src="/public/images/Logo.jpg" alt="Frosera Group Logo" class="logo-image">
+                    <h2>Frosera Group</h2>
+                </div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Connecting Global Products with New Zealand Markets</h1>
+                <p class="hero-description">
+                    Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. 
+                    Since our founding in November 2022, we've specialized in sourcing high-quality international 
+                    products and delivering them efficiently to retailers, supermarkets, and food service providers across Aotearoa.
+                </p>
+                <div class="hero-features">
+                    <div class="hero-feature">✅ Reliable Import Services</div>
+                    <div class="hero-feature">✅ Nationwide Distribution Network</div>
+                    <div class="hero-feature">✅ Ethical Sourcing & Quality Assurance</div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary">Our Services</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-placeholder">
+                    <i class="fas fa-globe"></i>
+                    <i class="fas fa-truck"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Frosera Group</h2>
+                <p>Your trusted partner for importing and distribution in New Zealand</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Who We Are</h3>
+                    <p>
+                        Founded in 2022, Frosera Group is a Wellington-based company focused on importing and 
+                        distributing premium products from around the world. Our mission is to bring diversity, 
+                        quality, and innovation to New Zealand's retail and food service sectors.
+                    </p>
+                    <p>
+                        Our logo—a green leaf and golden flame—symbolizes our commitment to sustainability and excellence. 
+                        Whether you're looking for ethnic foods, specialty beverages, or household essentials, 
+                        Frosera Group is your go-to partner for global sourcing and local delivery.
+                    </p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h4>2022</h4>
+                            <p>Founded</p>
+                        </div>
+                        <div class="stat">
+                            <h4>100%</h4>
+                            <p>NZ Based</p>
+                        </div>
+                        <div class="stat">
+                            <h4>24/7</h4>
+                            <p>Support</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-features">
+                    <div class="feature">
+                        <i class="fas fa-leaf"></i>
+                        <h4>🌿 Ethical & Sustainable Sourcing</h4>
+                        <p>We prioritize environmentally responsible and ethically sourced products</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <h4>🚚 Fast & Reliable Distribution</h4>
+                        <p>Nationwide delivery network ensuring timely product distribution</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-handshake"></i>
+                        <h4>🤝 Strong Supplier Relationships</h4>
+                        <p>Trusted partnerships with international suppliers worldwide</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-box"></i>
+                        <h4>📦 Custom Solutions</h4>
+                        <p>Tailored solutions for retailers, wholesalers, and food service providers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Importing & Distribution Solutions for New Zealand</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3>Importing Services</h3>
+                    <p>We work with vetted international suppliers to bring in high-quality products that meet New Zealand's regulatory standards.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Distribution Services</h3>
+                    <p>Our logistics team ensures timely delivery to stores, supermarkets, and food service providers across the country.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Private Label Solutions</h3>
+                    <p>Want to launch your own brand? Frosera Group offers private label and custom sourcing options tailored to your business needs.</p>
+                </div>
+                <div class="service-card product-category">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>🌍 Ethnic & Specialty Foods</h3>
+                    <p>Authentic international cuisine and specialty food products from around the world.</p>
+                </div>
+                <div class="service-card product-category">
+                    <div class="service-icon">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <h3>🥤 Beverages</h3>
+                    <p>International beverages, specialty drinks, and unique beverage products.</p>
+                </div>
+                <div class="service-card product-category">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>🧼 Household Essentials</h3>
+                    <p>Quality household products and daily essentials for New Zealand homes.</p>
+                </div>
+                <div class="service-card product-category">
+                    <div class="service-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <h3>🍫 Packaged Goods</h3>
+                    <p>Premium packaged foods, snacks, and consumer goods from international markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get in Touch</h2>
+                <p>Ready to take your business to the next level?</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Wellington, New Zealand<br>Importer & Distributor</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h4>Website</h4>
+                            <p>www.froseragroup.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>froserag@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Frosera Group</h3>
+                    <p>Connecting Global Products with New Zealand Markets</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Importing Services</a></li>
+                        <li><a href="#services">Distribution Services</a></li>
+                        <li><a href="#services">Private Label Solutions</a></li>
+                        <li><a href="#services">Product Categories</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <?php echo htmlspecialchars($currentYear, ENT_QUOTES, 'UTF-8'); ?> Frosera Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/public/js/script.js"></script>
+</body>
+</html>
