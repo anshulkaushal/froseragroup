@@ -36,21 +36,28 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // Optional: send email (configure if desired)
-$sendEmails = false; // Set to true if you configure mail()
+$sendEmails = true; // Enable email sending (ensure your hosting mail is configured)
 
 if ($sendEmails) {
-    $to = 'sales@froseragroup.co.nz';
-    $headers = 'From: noreply@froseragroup.co.nz' . "\r\n" .
-               'Reply-To: ' . $email . "\r\n" .
-               'Content-Type: text/plain; charset=utf-8';
-    $body = "New contact form submission (froseragroup.co.nz):\n\n" .
+    $to = 'brass@brasscraft.store';
+    $subjectLine = 'Frosera Group Contact: ' . $subject;
+    $headers  = 'From: noreply@froseragroup.co.nz' . "\r\n";
+    $headers .= 'Reply-To: ' . $email . "\r\n";
+    $headers .= 'MIME-Version: 1.0' . "\r\n";
+    $headers .= 'Content-Type: text/plain; charset=utf-8' . "\r\n";
+    
+    $body = "New contact form submission (froseragroup.co.nz)\n" .
+            str_repeat('-', 40) . "\n\n" .
             "Name: $name\n" .
             "Email: $email\n" .
             "Subject: $subject\n" .
             "Message:\n$message\n";
 
-    // Suppress warnings if mail is not configured
-    @mail($to, "Frosera Group Contact: $subject", $body, $headers);
+    // Attempt to send email; return error if sending fails
+    $sent = @mail($to, $subjectLine, $body, $headers);
+    if (!$sent) {
+        json_response(false, 'Unable to send email at the moment. Please try again later.', 502);
+    }
 }
 
 json_response(true, 'Thank you for your message! We will get back to you soon.');
