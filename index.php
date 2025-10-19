@@ -4,7 +4,7 @@
 $title = 'Frosera Group | Import & Distribution Experts in Wellington';
 $description = 'Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.';
 $currentYear = date('Y');
-$version = '1.2.1'; // Update this when deploying changes
+$version = '1.2.2'; // Update this when deploying changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
