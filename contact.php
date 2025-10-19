@@ -39,7 +39,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 $sendEmails = true; // Enable email sending (ensure your hosting mail is configured)
 
 if ($sendEmails) {
-    $to = 'brass@brasscraft.store';
+    $to = 'sales@froseragroup.co.nz';
     $subjectLine = 'Frosera Group Contact: ' . $subject;
     $headers  = 'From: noreply@froseragroup.co.nz' . "\r\n";
     $headers .= 'Reply-To: ' . $email . "\r\n";
