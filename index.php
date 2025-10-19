@@ -4,6 +4,7 @@
 $title = 'Frosera Group | Import & Distribution Experts in Wellington';
 $description = 'Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.';
 $currentYear = date('Y');
+$version = '1.2.0'; // Update this when deploying changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,7 @@ $currentYear = date('Y');
     <meta name="theme-color" content="#2563eb">
     <meta name="msapplication-navbutton-color" content="#2563eb">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="version" content="<?php echo htmlspecialchars($version, ENT_QUOTES, 'UTF-8'); ?>">
     
     <!-- Preload critical resources -->
     <link rel="preload" href="public/css/styles.css" as="style">
@@ -307,7 +309,7 @@ $currentYear = date('Y');
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; <?php echo htmlspecialchars($currentYear, ENT_QUOTES, 'UTF-8'); ?> Frosera Group. All rights reserved.</p>
+                <p>&copy; <?php echo htmlspecialchars($currentYear, ENT_QUOTES, 'UTF-8'); ?> Frosera Group. All rights reserved. | Version <?php echo htmlspecialchars($version, ENT_QUOTES, 'UTF-8'); ?></p>
             </div>
         </div>
     </footer>
