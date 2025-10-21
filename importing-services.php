@@ -2,7 +2,7 @@
 $title = 'Importing Services | Frosera Group';
 $description = 'Explore products imported by Frosera Group: Cashew Nuts, Chia Seeds, Quinoa, Fox Nuts.';
 $currentYear = date('Y');
-$version = '1.2.2';
+$version = '1.2.3';
 ?>
 <!DOCTYPE html>
 <html lang="en">

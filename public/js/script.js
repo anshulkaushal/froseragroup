@@ -69,18 +69,18 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Hamburger menu setup complete');
 
-    // Smooth scrolling for navigation links
+    // Smooth scrolling for in-page hash links only
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (!href || !href.startsWith('#')) {
+                // Allow normal navigation for non-hash links (e.g., .php pages)
+                return;
+            }
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
+            const targetSection = document.querySelector(href);
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
     });

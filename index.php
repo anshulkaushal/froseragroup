@@ -4,7 +4,7 @@
 $title = 'Frosera Group | Import & Distribution Experts in Wellington';
 $description = 'Frosera Group is a trusted importer and distributor based in Wellington, New Zealand. Connecting global products with New Zealand markets since 2022.';
 $currentYear = date('Y');
-$version = '1.2.2'; // Update this when deploying changes
+$version = '1.2.3'; // Update this when deploying changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -374,18 +374,18 @@ $version = '1.2.2'; // Update this when deploying changes
             }
         });
         
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for in-page hash links only
         navLinks.forEach(link => {
             link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (!href || !href.startsWith('#')) {
+                    // Allow normal navigation for non-hash links (e.g., .php pages)
+                    return;
+                }
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
+                const targetSection = document.querySelector(href);
                 if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
