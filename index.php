@@ -177,7 +177,7 @@ $version = '1.2.2'; // Update this when deploying changes
                     <div class="service-icon">
                         <i class="fas fa-ship"></i>
                     </div>
-                    <h3>Importing Services</h3>
+                    <h3><a href="importing-services.php" class="nav-link">Importing Services</a></h3>
                     <p>We work with vetted international suppliers to bring in high-quality products that meet New Zealand's regulatory standards.</p>
                 </div>
                 <div class="service-card">
