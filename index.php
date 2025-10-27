@@ -284,9 +284,9 @@ $version = '1.2.3'; // Update this when deploying changes
                     <h3>Frosera Group</h3>
                     <p>Connecting Global Products with New Zealand Markets</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/froseragroup" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@froseragroup" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.linkedin.com/company/froseragroup" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
