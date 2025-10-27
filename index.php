@@ -286,7 +286,7 @@ $version = '1.2.3'; // Update this when deploying changes
                     <div class="social-links">
                         <a href="https://www.instagram.com/froseragroup" target="_blank" rel="noopener noreferrer" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.tiktok.com/@froseragroup" target="_blank" rel="noopener noreferrer" title="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.linkedin.com/company/froseragroup" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/in/frosera-group-5a77ba390" target="_blank" rel="noopener noreferrer" title="Connect on LinkedIn"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
